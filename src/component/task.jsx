@@ -17,6 +17,8 @@ const usestyles = makeStyles((theme) => ({
       paddingTop: "50px",
      margin: "100px 50px 20px 500px",
      width: "50%",
+     borderRadius : "20px",
+     boxShadow : "2px 1px 1px rgba(0,0,0,0.2)",
      [theme.breakpoints.down("md")]: {
 			margin: "100px 50px 20px 300px",
       padding : "20px 10px 20px 10px"
@@ -28,6 +30,8 @@ const usestyles = makeStyles((theme) => ({
     },
     box2:{
       background: "#ffff",
+      borderRadius : "10px",
+      boxShadow : "2px 1px 1px rgba(0,0,0,0.2)",
      
     },
     ibox:{
@@ -66,7 +70,8 @@ const usestyles = makeStyles((theme) => ({
          [theme.breakpoints.down("sm")]: {
           display:"flex",
           flexDirection: "column",
-          margin: "10px 0 10px 0"
+          margin: "10px 0 10px 0",
+
         },
         [theme.breakpoints.down("md")]: {
           display:"flex",
@@ -75,12 +80,12 @@ const usestyles = makeStyles((theme) => ({
         },
          
     },
-    yourtask:{
-    marginTop: "50px",
-    },
-task1:{
-marginRight : "50px"
-},
+      yourtask:{
+      marginTop: "50px",
+      },
+      task1:{
+      marginRight : "50px"
+      },
     
     btn1:{
       background:"#003979",
@@ -116,8 +121,8 @@ const handleChange = (newValue) => {
   return (
    <Card className={classes.box}>
    <CardContent>
-     <Box  className={classes.box2}>
-        <Card>
+     <Box  >
+        <Card className={classes.box2}>
           <CardContent className={classes.ibox}>
           <Typography className={classes.child1}>Task Manager</Typography>
           <TextField 
@@ -127,12 +132,6 @@ const handleChange = (newValue) => {
               label="Task-Title"
                 variant="outlined" 
                 required  />
-          {/* <TextField 
-              className={classes.child2} 
-              id="outlined-basic"
-              label="Task-Description" 
-              variant="outlined" 
-              required  /> */}
               <TextareaAutosize
                 rowsMin={5}
                 placeholder='Task-Description'
