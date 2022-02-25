@@ -42,11 +42,12 @@ const usestyles = makeStyles((theme) => ({
       color: "#003979",
       marginTop:"10px",
       marginBottom: "10px",
-      fontWeight : "bold"
+      fontWeight : "bold",
+      fontSize: "30px"
     },
     child2:{
       marginTop:"10px",
-      marginBottom: "10px"
+      marginBottom: "10px",
     },
     child3:{
       marginTop:"10px"
@@ -55,14 +56,15 @@ const usestyles = makeStyles((theme) => ({
       color: "#003979",
       marginTop:"10px",
       marginBottom: "10px",
-      fontWeight : "bold"
+      fontWeight : "bold",
+      fontSize: "30px"
     },
     tasks:{
           background: "#ffff",
           display:"flex",
-         flexDirection: "row",
-         justifyContent: "center",
-         alignItems: "center",
+          // flexDirection: "flex-end",
+        //  justifyContent: "center",
+        //  alignItems: "center",
          marginTop:"20px",
          marginBottom: "20px",
          color: "#003979",
@@ -71,6 +73,7 @@ const usestyles = makeStyles((theme) => ({
           display:"flex",
           flexDirection: "column",
           margin: "10px 0 10px 0",
+          
 
         },
         [theme.breakpoints.down("md")]: {
@@ -78,7 +81,6 @@ const usestyles = makeStyles((theme) => ({
           flexDirection: "column",
           margin: "10px 0 10px 0"
         },
-         
     },
       yourtask:{
       marginTop: "50px",
@@ -127,16 +129,18 @@ const handleChange = (newValue) => {
           <Typography className={classes.child1}>Task Manager</Typography>
           <TextField 
               className={classes.child2}
-              id="outlined-basic" 
-              rowMin = {5} 
+              id="outlined-basic"  
               label="Task-Title"
                 variant="outlined" 
                 required  />
-              <TextareaAutosize
-                rowsMin={5}
+              <TextField
+                id="outlined-basic"  
+                variant="outlined"
+                label="Task-Description"  
                 placeholder='Task-Description'
                 className={classes.child2}    
-                name='description'
+                 multiline
+                rows={5}
                 required
               />
           <MuiPickersUtilsProvider utils={DateMomentUtils}>
@@ -145,8 +149,10 @@ const handleChange = (newValue) => {
                 variant="inline"
                 inputVariant="outlined"
                 label="Date"
+                placeholder="Date"
                 format="MM/dd/yyyy"
                 value={value}
+               
                 InputAdornmentProps={{ position: "end" }}
                 onChange={handleChange}
                />  
